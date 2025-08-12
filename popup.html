@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    
+    .video-info {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .speed-control {
+      margin-bottom: 20px;
+    }
+    
+    .speed-display {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #2196F3;
+      margin-bottom: 15px;
+    }
+    
+    .speed-slider {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: #ddd;
+      outline: none;
+      margin-bottom: 15px;
+    }
+    
+    .speed-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #2196F3;
+      cursor: pointer;
+    }
+    
+    .preset-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .preset-btn {
+      padding: 8px 4px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+    
+    .preset-btn:hover {
+      background: #f5f5f5;
+    }
+    
+    .preset-btn.active {
+      background: #2196F3;
+      color: white;
+      border-color: #2196F3;
+    }
+    
+    .reset-btn {
+      width: 100%;
+      padding: 10px;
+      background: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .reset-btn:hover {
+      background: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">Video Speed Controller</div>
+    <div class="video-info" id="videoInfo">検索中...</div>
+  </div>
+  
+  <div class="speed-control">
+    <div class="speed-display" id="speedDisplay">1.00x</div>
+    <input type="range" class="speed-slider" id="speedSlider" 
+           min="0.25" max="4" step="0.25" value="1">
+  </div>
+  
+  <div class="preset-buttons">
+    <button class="preset-btn" data-speed="0.5">0.5x</button>
+    <button class="preset-btn" data-speed="0.75">0.75x</button>
+    <button class="preset-btn active" data-speed="1">1x</button>
+    <button class="preset-btn" data-speed="1.25">1.25x</button>
+    <button class="preset-btn" data-speed="1.5">1.5x</button>
+    <button class="preset-btn" data-speed="1.75">1.75x</button>
+    <button class="preset-btn" data-speed="2">2x</button>
+    <button class="preset-btn" data-speed="3">3x</button>
+  </div>
+  
+  <button class="reset-btn" id="resetBtn">リセット (1x)</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
